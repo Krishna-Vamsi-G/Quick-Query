@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@android:color/black"
+                android:title="Quick Query"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="WebViewLayout">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    style="@style/outline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:hint="Query String"
+                    android:textColorHint="#808080"
+                    android:theme="@style/EditTextThemeOverlay"
+                    app:boxStrokeColor="#808080"
+                    app:boxStrokeWidth="1dp"
+                    app:boxStrokeWidthFocused="1dp"
+                    app:errorTextAppearance="@style/ErrorTextAppearance"
+                    app:errorTextColor="#FF0000"
+                    app:hintTextAppearance="@style/HintTextAppearance"
+                    app:hintTextColor="#757575"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputQuery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/search"
+                        android:paddingStart="20dp"
+                        android:maxLines="1"
+                        android:paddingTop="20dp"
+                        android:paddingEnd="20dp"
+                        android:textColor="@color/black"
+                        android:textColorHighlight="@color/textColorHighlight" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/blackButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="60dp"
+                    android:background="@drawable/button_round_black"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="Search"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/curved_border_bg"
+                    android:padding="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/blackButton">
+
+                    <WebView
+                        android:id="@+id/webView"
+                        android:layout_width="0dp"
+                        android:layout_height="550dp"
+                        android:background="@android:color/transparent"
+                        android:minHeight="500dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:id="@+id/frameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/actions_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="50dp"
+            android:text="Actions"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:backgroundTint="@android:color/black"
+            app:borderWidth="3dp"
+            app:elevation="0dp"
+            app:iconTint="@color/white"
+            app:icon="@drawable/add"
+            android:drawableTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="@color/lighter_gray" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/screenshot_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/fab_background"
+            android:src="@drawable/screenshot"
+            app:backgroundTint="@android:color/transparent"
+            app:borderWidth="3dp"
+            app:elevation="0dp"
+            android:visibility="gone"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toTopOf="@+id/actions_icon"
+            app:layout_constraintEnd_toEndOf="@+id/actions_icon"
+            app:rippleColor="@color/lighter_gray"
+            app:tint="@null" />
+
+        <TextView
+            android:id="@+id/screenshot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Capture Screenshot"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/screenshot_icon"
+            app:layout_constraintEnd_toStartOf="@+id/screenshot_icon"
+            app:layout_constraintTop_toTopOf="@+id/screenshot_icon" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/view_database_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/fab_background"
+            app:backgroundTint="@android:color/transparent"
+            app:borderWidth="3dp"
+            app:elevation="0dp"
+            app:fabSize="normal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/screenshot_icon"
+            app:layout_constraintEnd_toEndOf="@+id/screenshot_icon"
+            app:layout_constraintStart_toStartOf="@+id/screenshot_icon"
+            app:rippleColor="@color/lighter_gray"
+            app:srcCompat="@drawable/database"
+            app:tint="@null" />
+
+        <TextView
+            android:id="@+id/view_database"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="View Database"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/view_database_icon"
+            app:layout_constraintEnd_toStartOf="@+id/view_database_icon"
+            app:layout_constraintTop_toTopOf="@+id/view_database_icon" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/view_cache_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/fab_background"
+            app:backgroundTint="@android:color/transparent"
+            app:borderWidth="3dp"
+            app:elevation="0dp"
+            app:fabSize="normal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/view_database_icon"
+            app:layout_constraintEnd_toEndOf="@+id/view_database_icon"
+            app:layout_constraintStart_toStartOf="@+id/view_database_icon"
+            app:rippleColor="@color/lighter_gray"
+            app:srcCompat="@drawable/cache"
+            app:tint="@null" />
+
+        <TextView
+            android:id="@+id/view_cache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="View Cache"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/view_cache_icon"
+            app:layout_constraintEnd_toStartOf="@+id/view_cache_icon"
+            app:layout_constraintTop_toTopOf="@+id/view_cache_icon" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

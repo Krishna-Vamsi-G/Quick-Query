@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Quick Query</string>
+    <string name="hint_enter_query">Enter query</string>
+    <string name="submit">Submit</string>
+</resources>
