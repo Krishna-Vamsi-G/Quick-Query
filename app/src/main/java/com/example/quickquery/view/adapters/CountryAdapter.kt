@@ -1,5 +1,6 @@
 package com.example.quickquery.view.adapters
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +34,7 @@ class CountryAdapter(private val dataList: List<CacheEntity>) :
     }
 
     /**
-     * Create new views (invoked by the layout manager).
+     * Create new views.
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         val itemView =
@@ -42,12 +43,12 @@ class CountryAdapter(private val dataList: List<CacheEntity>) :
     }
 
     /**
-     * Returns the size of your dataset (invoked by the layout manager).
+     * Returns the size of your dataset.
      */
     override fun getItemCount(): Int = dataList.size
 
     /**
-     * Replace the contents of a view (invoked by the layout manager).
+     * Replace the contents of a view.
      */
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         val item = dataList[position]
@@ -61,8 +62,7 @@ class CountryAdapter(private val dataList: List<CacheEntity>) :
             // Display the first country's details if available.
             countries?.firstOrNull()?.let { country ->
                 holder.tvCountryName.text = country.name?.common ?: "N/A"
-                holder.tvCapital.text =
-                    "${country.capital?.joinToString() ?: "No Capital"}, $formattedTime"
+                holder.tvCapital.text = "${country.capital?.joinToString() ?: "No Capital"}, $formattedTime"
                 holder.tvFlag.text = country.flag ?: "🏳️" // Default flag if none available.
             } ?: run {
                 Log.e("CountryAdapter", "No country data available for position $position")

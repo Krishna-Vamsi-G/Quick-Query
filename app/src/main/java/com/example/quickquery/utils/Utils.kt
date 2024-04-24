@@ -198,7 +198,7 @@ object Utils {
         hideDialog() // Hide any existing dialog
         jarvisLoader = Dialog(context).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
-            setContentView(R.layout.loader_layout) // Define this layout with your loading spinner
+            setContentView(R.layout.loader_layout)
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             setCanceledOnTouchOutside(false)
             setCancelable(isCancelable)

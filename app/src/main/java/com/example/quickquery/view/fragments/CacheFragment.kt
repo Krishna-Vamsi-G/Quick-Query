@@ -86,8 +86,7 @@ class CacheFragment : Fragment() {
      */
     private fun noDataView(dataList: List<CacheEntity>) {
         if (dataList.isEmpty()) {
-            binding.imageView.visibility = View.VISIBLE
-            binding.textView.visibility = View.VISIBLE
+            showNoDataView()
             Log.d("CacheFragment", "No cache entries available. Showing no data view.")
         } else {
             binding.imageView.visibility = View.GONE
@@ -101,6 +100,5 @@ class CacheFragment : Fragment() {
     private fun showNoDataView() {
         binding.imageView.visibility = View.VISIBLE
         binding.textView.visibility = View.VISIBLE
-        Log.d("CacheFragment", "An error occurred. Showing no data view.")
     }
 }

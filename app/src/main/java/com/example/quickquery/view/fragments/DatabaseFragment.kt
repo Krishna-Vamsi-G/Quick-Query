@@ -98,8 +98,7 @@ class DatabaseFragment : Fragment() {
      */
     private fun noDataView(dataList: List<CacheEntity>) {
         if (dataList.isEmpty()) {
-            binding.imageView.visibility = View.VISIBLE
-            binding.textView.visibility = View.VISIBLE
+            showNoDataView()
             Log.d("DatabaseFragment", "No data available. Showing no data view.")
         } else {
             binding.imageView.visibility = View.GONE
@@ -113,6 +112,5 @@ class DatabaseFragment : Fragment() {
     private fun showNoDataView() {
         binding.imageView.visibility = View.VISIBLE
         binding.textView.visibility = View.VISIBLE
-        Log.d("DatabaseFragment", "An error occurred. Showing no data view.")
     }
 }

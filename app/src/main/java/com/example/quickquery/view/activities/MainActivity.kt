@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         dialogBinding = DialogViewScreenshotBinding.inflate(layoutInflater)
 
-
         initializeUI()
     }
 

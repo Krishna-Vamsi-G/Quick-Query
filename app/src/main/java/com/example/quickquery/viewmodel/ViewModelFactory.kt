@@ -16,7 +16,7 @@ class ViewModelFactory(private val repository: DataRepository) : ViewModelProvid
     }
 
     /**
-     * Creates a new instance of the given `ViewModel` class, if possible.
+     * Creates a new instance of the given `ViewModel` class.
      * @param modelClass A `Class` whose instance is desired.
      * @return A newly created ViewModel.
      * @throws IllegalArgumentException if there is no known way to create an instance.

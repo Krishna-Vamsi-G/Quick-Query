@@ -31,12 +31,11 @@ class MyApp : Application(), Configuration.Provider {
             repository = DataRepository(apiService, appDatabase.cacheDao())  // Instantiates the repository with the API service and DAO
         } catch (e: Exception) {
             Log.e("MyApp", "Initialization failed: ${e.message}")
-            // Error handling could be extended to retry initialization or notify the user
         }
     }
 
     /**
-     * Configures and enqueues the periodic and immediate cleanup jobs using WorkManager.
+     * Configures and does the periodic and immediate cleanup jobs using WorkManager.
      * This method sets up two types of work requests: immediate and periodic.
      */
     private fun schedulePeriodicCleanup() {
@@ -64,7 +63,7 @@ class MyApp : Application(), Configuration.Provider {
 
     /**
      * Provides the WorkManager with custom configuration options.
-     * This configuration sets the logging level to DEBUG to aid in development and troubleshooting.
+     * This configuration sets the logging level to DEBUG to help in development and troubleshooting.
      */
     override fun getWorkManagerConfiguration() =
         Configuration.Builder()

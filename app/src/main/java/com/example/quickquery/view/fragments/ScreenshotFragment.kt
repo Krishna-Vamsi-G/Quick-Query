@@ -14,9 +14,7 @@ class ScreenshotView(private val imagePath: String) : Fragment() {
     // Safe access to the binding property to avoid memory leaks.
     private val binding get() = _binding!!
 
-    /**
-     * Inflates the layout for this fragment and initializes binding.
-     */
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

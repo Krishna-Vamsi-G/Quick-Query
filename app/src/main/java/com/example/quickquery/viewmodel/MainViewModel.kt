@@ -20,8 +20,7 @@ import java.net.SocketTimeoutException
 class MainViewModel(private val repository: DataRepository) : ViewModel() {
     val countryData = MutableLiveData<List<Country>?>() // Live data to hold country data.
     val errorMessage = MutableLiveData<String>() // Live data to hold error messages.
-    val dataSourceType =
-        MutableLiveData<DataSourceType>() // Live data to hold the data source type.
+    val dataSourceType = MutableLiveData<DataSourceType>() // Live data to hold the data source type.
     val dataLoading = MutableLiveData<Boolean>(false)
     private val gson = Gson() // Gson instance for JSON deserialization.
 
